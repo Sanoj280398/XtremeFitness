@@ -41,6 +41,7 @@ expressServer.use(cookieParser());
 expressServer.use(express.static("[mcd]"));
 expressServer.use(express.static("public"));
 expressServer.use(express.static("sites"));
+expressServer.use("/materials", express.static(path.join(__dirname, "../../xtreme_fitness_materials")));
 
 /*
 
