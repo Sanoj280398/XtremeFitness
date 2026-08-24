@@ -1,0 +1,728 @@
+/* ==========================================================================
+   XtremeFitness - Global stylesheet (matcher Figma-designet)
+   Skrifttyper: Teko (overskrifter) + Ubuntu (brødtekst)
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Alle farver og fonte samlet ét sted, så de er lette at ændre */
+:root {
+  --color-primary: #ea4a2c; /* Rød-orange signalfarve fra designet */
+  --color-primary-dark: #c81f1f;
+  --color-dark: #140b09; /* Næsten sort, varmt mørk baggrund */
+  --color-dark-soft: #1c1210;
+  --color-light: #ffffff;
+  --color-muted: #6b6b6b;
+  --gradient-primary: linear-gradient(160deg, #ef5b31 0%, #c81f1f 100%);
+  --font-heading: "Teko", sans-serif;
+  --font-body: "Ubuntu", sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Lille rød label der bruges over overskrifter i alle sektioner, fx "PRISER" */
+.eyebrow {
+  display: inline-block;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-title--center {
+  text-align: center;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+/* ---------- Rund CTA-knap med play-ikon, matcher designet ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 0.6rem 0.7rem 1.6rem;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Runde pil-knapper til karruseller (frem/tilbage) */
+.arrow-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.arrow-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+/* ---------- Header / navigation ---------- */
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+}
+
+.nav__logo,
+.hero__logo,
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  color: var(--color-light);
+}
+
+.nav__logo-mark,
+.hero__logo-mark {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.nav__burger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-light);
+  cursor: pointer;
+}
+
+.nav__list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav__link {
+  color: var(--color-light);
+  font-weight: 500;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-light);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  padding: 6rem 0 3rem;
+}
+
+/* Rødt farvelag oven på baggrundsbilledet, så teksten er let at læse */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(239, 91, 49, 0.85) 0%,
+    rgba(200, 31, 31, 0.9) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__logo {
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.hero__title {
+  font-size: clamp(3rem, 12vw, 5rem);
+}
+
+.hero__subtitle {
+  max-width: 420px;
+  margin: 1rem 0 2rem;
+}
+
+/* ---------- Eksklusive øvelser (karrusel) ---------- */
+.exercises {
+  text-align: center;
+}
+
+.exercises__card {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.exercises__icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+/* ---------- Om os ---------- */
+.about {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: var(--color-light);
+}
+
+.about__overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(20, 11, 9, 0.7),
+    rgba(20, 11, 9, 0.95)
+  );
+  padding: 4rem 0;
+}
+
+.about__text {
+  max-width: 500px;
+}
+
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+  max-width: 420px;
+}
+
+.about__stat-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+/* ---------- Services ---------- */
+.services {
+  background-size: cover;
+  background-position: center;
+  color: var(--color-light);
+}
+
+.services__list {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.service-card__image {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  background-color: #ddd;
+  position: relative;
+}
+
+.service-card__icon {
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.service-card__body {
+  padding: 2rem 1.5rem 1.5rem;
+}
+
+/* ---------- Testimonials ---------- */
+.testimonials {
+  text-align: center;
+}
+
+.testimonials__quote-icon {
+  width: 40px;
+  margin: 0 auto 1rem;
+}
+
+.testimonials__quote {
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  font-style: italic;
+  color: var(--color-muted);
+}
+
+.testimonials__name {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+}
+
+.testimonials__role {
+  color: var(--color-muted);
+}
+
+.testimonials__photo {
+  width: 220px;
+  margin: 2rem auto 0;
+}
+
+/* ---------- Priser ---------- */
+.pricing {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+.pricing__grid {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.price-card {
+  background-color: var(--color-dark-soft);
+  border-radius: 10px;
+  overflow: hidden;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.price-card__image {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  background-color: #333;
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.price-card__badge {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  border: 4px solid var(--color-dark-soft);
+}
+
+.price-card h3 {
+  margin-bottom: 1rem;
+}
+
+.price-card__features {
+  list-style: none;
+  text-align: left;
+  max-width: 260px;
+  margin: 0 auto 1.5rem;
+}
+
+.price-card__features li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  color: var(--color-primary);
+}
+
+.price-card__features li svg {
+  flex-shrink: 0;
+}
+
+/* ---------- Trænere ---------- */
+.trainers {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: var(--color-light);
+}
+
+/* Mørkt rødt lag oven på baggrundsfotoet, så teksten kan læses */
+.trainers::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(239, 91, 49, 0.9),
+    rgba(20, 11, 9, 0.9)
+  );
+}
+
+.trainers .container {
+  position: relative;
+}
+
+.trainers__grid {
+  display: grid;
+  gap: 2.5rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.trainer-card__avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  background-color: var(--color-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+}
+
+.trainer-card__socials {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-top: 0.8rem;
+}
+
+.trainer-card__socials a {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Kontakt ---------- */
+.contact {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: var(--color-light);
+  text-align: center;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 11, 9, 0.88);
+}
+
+.contact .container {
+  position: relative;
+}
+
+.contact__decoration {
+  width: 140px;
+  margin: 0 auto 1rem;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact__form input {
+  padding: 0.9rem 1.2rem;
+  border-radius: 50px;
+  border: none;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  font-family: var(--font-body);
+}
+
+.contact__submit {
+  align-self: center;
+}
+
+/* ---------- Blog ---------- */
+.blog-card {
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+
+.blog-card__image {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  background-color: #ccc;
+  position: relative;
+}
+
+.blog-card__date {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.blog-card__body {
+  padding: 1.5rem;
+}
+
+.blog-card__link {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  position: relative;
+  background: linear-gradient(160deg, #2a0f0a, #140b09);
+  color: var(--color-light);
+  padding: 3rem 0 1.5rem;
+  overflow: hidden;
+}
+
+.footer__decoration {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.footer__decoration--left {
+  left: -40px;
+}
+
+.footer__decoration--right {
+  right: -40px;
+}
+
+.footer__grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.footer__socials a {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__copy {
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- Video-showcase ---------- */
+.video-showcase {
+  text-align: center;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+.video-showcase__frame {
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.video-showcase__poster {
+  position: relative;
+  width: 100%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+}
+
+.video-showcase__poster img:first-child {
+  width: 100%;
+}
+
+.video-showcase__play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  padding: 20px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.video-showcase__video {
+  width: 100%;
+}
+
+/* ---------- Desktop-tilpasning ---------- */
+@media (min-width: 700px) {
+  .services__list,
+  .pricing__grid,
+  .trainers__grid,
+  .about__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing__grid,
+  .trainers__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Mobil-tilpasning ---------- */
+@media (max-width: 768px) {
+  .nav__burger {
+    display: block;
+  }
+
+  .nav__list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--color-dark);
+    padding: 1rem 0;
+  }
+
+  .nav__list--open {
+    display: flex;
+  }
+}
