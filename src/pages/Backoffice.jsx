@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Header from "../components/Header.jsx";
 import BackofficeLogin from "./backoffice/BackofficeLogin.jsx";
 import BackofficeDashboard from "./backoffice/BackofficeDashboard.jsx";
 import { isAuthenticated, logout } from "./backoffice/auth.js";
@@ -13,11 +14,16 @@ function Backoffice() {
     setLoggedIn(false);
   };
 
-  if (!loggedIn) {
-    return <BackofficeLogin onLoginSuccess={() => setLoggedIn(true)} />;
-  }
-
-  return <BackofficeDashboard onLogout={handleLogout} />;
+  return (
+    <>
+      <Header />
+      {loggedIn ? (
+        <BackofficeDashboard onLogout={handleLogout} />
+      ) : (
+        <BackofficeLogin onLoginSuccess={() => setLoggedIn(true)} />
+      )}
+    </>
+  );
 }
 
 export default Backoffice;

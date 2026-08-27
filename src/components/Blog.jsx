@@ -4,7 +4,7 @@ const post = {
   title: "Fra sofasurfer til bænkpresser",
   excerpt:
     "Hvordan et spontant medlemskab i Xtreme Fitness vendte hverdag på hovedet — på den allerbedste måde.",
-  image: "/assets/images/blog-1.jpg",
+  image: "/assets/images/reviews.png",
 };
 
 function Blog() {

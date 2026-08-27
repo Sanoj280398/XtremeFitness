@@ -1,4 +1,10 @@
 import { useEffect, useState } from "react";
+import {
+  createUser,
+  deleteUser,
+  fetchUsers,
+  updateUser,
+} from "../../api/api.js";
 
 const STORAGE_KEY = "xf_members";
 
@@ -28,11 +34,41 @@ export function useMembers() {
   });
 
   useEffect(() => {
+    let isMounted = true;
+
+    fetchUsers()
+      .then((users) => {
+        if (isMounted && Array.isArray(users)) {
+          setMembers(users);
+        }
+      })
+      .catch(() => {
+        // Lokal data bruges, når API-serveren ikke er tilgængelig endnu.
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(members));
   }, [members]);
 
   const addMember = (member) => {
-    setMembers((prev) => [...prev, { ...member, id: Date.now() }]);
+    const temporaryMember = { ...member, id: Date.now() };
+    setMembers((prev) => [...prev, temporaryMember]);
+    createUser(member)
+      .then((savedMember) => {
+        if (savedMember?.id) {
+          setMembers((prev) =>
+            prev.map((item) =>
+              item.id === temporaryMember.id ? savedMember : item,
+            ),
+          );
+        }
+      })
+      .catch(() => undefined);
   };
 
   const updateMember = (id, updatedFields) => {
@@ -41,10 +77,12 @@ export function useMembers() {
         member.id === id ? { ...member, ...updatedFields } : member,
       ),
     );
+    updateUser(id, updatedFields).catch(() => undefined);
   };
 
   const deleteMember = (id) => {
     setMembers((prev) => prev.filter((member) => member.id !== id));
+    deleteUser(id).catch(() => undefined);
   };
 
   return { members, addMember, updateMember, deleteMember };

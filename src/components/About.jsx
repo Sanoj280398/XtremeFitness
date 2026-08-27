@@ -36,7 +36,7 @@ function About() {
             ))}
           </div>
 
-          <a href="#services" className="btn">
+          <a href="/services" className="btn">
             Læs mere
             <span className="btn__icon">
               <IconPlay />

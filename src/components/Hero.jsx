@@ -15,13 +15,12 @@ function Hero() {
             src="/assets/icons/logo.png"
             alt="Xtreme Fitness logo"
           />
-          XTREME FITNESS
         </div>
         <h1 className="hero__title">BLIV STÆRK</h1>
         <p className="hero__subtitle">
           Det bedste fitnesscenter — hvor styrke og fællesskab mødes sammen.
         </p>
-        <a href="#pricing" className="btn">
+        <a href="/subscriptions" className="btn">
           Tilmeld dig nu
           <span className="btn__icon">
             <IconPlay />

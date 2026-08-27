@@ -1,3 +1,5 @@
+import { loginUser } from "../../api/api.js";
+
 const AUTH_KEY = "xf_backoffice_auth";
 
 // Demo-login til backoffice.
@@ -7,12 +9,9 @@ const AUTH_KEY = "xf_backoffice_auth";
 const DEMO_USERNAME = "admin";
 const DEMO_PASSWORD = "xtreme2026";
 
-export function login(username, password) {
-  const isValid = username === DEMO_USERNAME && password === DEMO_PASSWORD;
-  if (isValid) {
-    sessionStorage.setItem(AUTH_KEY, "true");
-  }
-  return isValid;
+export async function login(username, password) {
+  await loginUser({ username, password });
+  sessionStorage.setItem(AUTH_KEY, "true");
 }
 
 export function logout() {

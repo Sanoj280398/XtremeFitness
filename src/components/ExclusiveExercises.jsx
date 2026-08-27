@@ -6,14 +6,17 @@ const exercises = [
   {
     title: "Styrkeøgning",
     text: "Vil du bygge dig større, stærkere og se bedre ud i spejlet? Så er det tid til at fokusere på de mest effektive styrkeøvelser.",
+    image: "/assets/images/exerciseDetailsHeader.png",
   },
   {
     title: "Udholdenhed",
     text: "Byg en stærkere kondition, så du kan holde til mere - både i træningscenteret og i hverdagen.",
+    image: "/assets/images/servicesHeader.png",
   },
   {
     title: "Fleksibilitet",
     text: "Bedre bevægelighed forebygger skader og gør alle dine andre øvelser lettere at udføre korrekt.",
+    image: "/assets/images/about_us2.png",
   },
 ];
 
@@ -43,9 +46,12 @@ function ExclusiveExercises() {
         </h2>
 
         <div className="exercises__card">
-          <div className="exercises__icon" aria-hidden="true">
-            🏋
-          </div>
+          <img
+            className="exercises__image"
+            src={current.image}
+            alt=""
+            aria-hidden="true"
+          />
           <h3>{current.title}</h3>
           <p>{current.text}</p>
         </div>

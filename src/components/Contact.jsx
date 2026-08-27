@@ -1,9 +1,17 @@
 import { useState } from "react";
 import { IconPlay } from "./icons.jsx";
+import { createMessage } from "../api/api.js";
 
 // Kontaktformular - matcher de tre felter fra designet (Navn, Telefon, Email)
 function Contact() {
-  const [formData, setFormData] = useState({ name: "", phone: "", email: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -12,9 +20,13 @@ function Contact() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // TODO: Send data til en rigtig server/API når den findes
-    console.log("Formular indsendt:", formData);
-    setFormData({ name: "", phone: "", email: "" });
+    setStatus("");
+    createMessage(formData)
+      .then(() => {
+        setFormData({ name: "", phone: "", email: "", subject: "", message: "" });
+        setStatus("Beskeden er sendt.");
+      })
+      .catch(() => setStatus("Beskeden kunne ikke sendes lige nu."));
   };
 
   return (
@@ -66,12 +78,27 @@ function Contact() {
             onChange={handleChange}
             required
           />
+          <input
+            type="text"
+            name="subject"
+            placeholder="Emne"
+            value={formData.subject}
+            onChange={handleChange}
+          />
+          <textarea
+            name="message"
+            placeholder="Besked"
+            rows="4"
+            value={formData.message}
+            onChange={handleChange}
+          />
           <button type="submit" className="btn contact__submit">
             Send
             <span className="btn__icon">
               <IconPlay />
             </span>
           </button>
+          {status && <p className="contact__status">{status}</p>}
         </form>
       </div>
     </section>

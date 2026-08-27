@@ -7,10 +7,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-dark);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.backoffice-login::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 11, 9, 0.78);
 }
 
 .backoffice-login__form {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -41,8 +52,9 @@
 
 .backoffice {
   min-height: 100vh;
-  background-color: var(--color-dark);
-  padding: 2rem;
+  background: #f4f5f5;
+  color: #171717;
+  padding: 7rem 4vw 4rem;
 }
 
 .backoffice__header {
@@ -50,10 +62,25 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2rem;
+  border-bottom: 3px solid var(--color-primary);
+  padding-bottom: 1rem;
+}
+
+.backoffice__header h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
 }
 
 .backoffice__section {
   margin-bottom: 3rem;
+  background: #fff;
+  border: 1px solid #dedede;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(20, 11, 9, 0.06);
+}
+
+.backoffice__section h2 {
+  margin-bottom: 1rem;
+  color: var(--color-primary-dark);
 }
 
 .backoffice__form {
@@ -66,10 +93,11 @@
 .backoffice__form input,
 .backoffice__form select {
   padding: 0.7rem;
-  background-color: #1a1a1a;
-  border: 1px solid #333;
-  color: var(--color-light);
+  background-color: #fff;
+  border: 1px solid #b8b8b8;
+  color: #171717;
   font-family: var(--font-body);
+  flex: 1 1 180px;
 }
 
 .backoffice__form-actions {
@@ -80,6 +108,11 @@
 .backoffice__table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 680px;
+}
+
+.backoffice__table-wrap {
+  overflow-x: auto;
 }
 
 .backoffice__table th,
@@ -87,6 +120,18 @@
   padding: 0.8rem;
   border-bottom: 1px solid #333;
   text-align: left;
+}
+
+.backoffice__table th {
+  background: var(--color-primary);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  text-transform: uppercase;
+}
+
+.backoffice__table tr:nth-child(even) {
+  background: #fafafa;
 }
 
 .btn--secondary {
@@ -101,4 +146,20 @@
 
 .btn--danger {
   background-color: #7a0000;
+}
+
+@media (max-width: 700px) {
+  .backoffice {
+    padding: 5.5rem 1rem 2rem;
+  }
+
+  .backoffice__header {
+    align-items: flex-start;
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .backoffice__section {
+    padding: 1rem;
+  }
 }

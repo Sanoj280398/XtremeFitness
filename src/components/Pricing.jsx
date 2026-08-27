@@ -74,7 +74,7 @@ function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a href="#contact" className="btn">
+              <a href="/messages" className="btn">
                 Tilmeld dig nu
                 <span className="btn__icon">
                   <IconPlay />

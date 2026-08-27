@@ -7,18 +7,23 @@ function BackofficeLogin({ onLoginSuccess }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (login(username, password)) {
+    setError("");
+    try {
+      await login(username, password);
       setError("");
       onLoginSuccess();
-    } else {
+    } catch {
       setError("Forkert brugernavn eller adgangskode.");
     }
   };
 
   return (
-    <div className="backoffice-login">
+    <div
+      className="backoffice-login"
+      style={{ backgroundImage: "url('/assets/images/loginHeader.png')" }}
+    >
       <form className="backoffice-login__form" onSubmit={handleSubmit}>
         <h1 className="backoffice-login__title">Backoffice login</h1>
         <input
