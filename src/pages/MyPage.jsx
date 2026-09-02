@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import PageLayout from "./PageLayout.jsx";
 
 const bookings = [
@@ -16,6 +16,10 @@ const classes = [
 ];
 
 function MyPage() {
+  if (sessionStorage.getItem("xf_customer_auth") !== "true") {
+    return <Navigate to="/login" replace />;
+  }
+
   return (
     <PageLayout>
       <section className="mypage-hero">

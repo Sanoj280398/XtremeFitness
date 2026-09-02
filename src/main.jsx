@@ -12,6 +12,7 @@ import MessagesPage from "./pages/MessagesPage.jsx";
 import BlogsPage from "./pages/BlogsPage.jsx";
 import ExercisesPage from "./pages/ExercisesPage.jsx";
 import MyPage from "./pages/MyPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/exercises" element={<ExercisesPage />} />
         <Route path="/my-page" element={<MyPage />} />
+        <Route path="/login" element={<LoginPage />} />
         {/* Adminomraade, kun tilgaengeligt via login */}
         <Route path="/backoffice/*" element={<Backoffice />} />
       </Routes>

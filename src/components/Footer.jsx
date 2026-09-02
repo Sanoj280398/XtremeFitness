@@ -53,11 +53,21 @@ function Footer() {
         <div>
           <h3>Hurtige links</h3>
           <ul className="footer__links">
-            <li><Link to="/about">Om os</Link></li>
-            <li><Link to="/services">Tjenester</Link></li>
-            <li><Link to="/employees">Trænere</Link></li>
-            <li><Link to="/subscriptions">Priser</Link></li>
-            <li><Link to="/messages">Kontakt</Link></li>
+            <li>
+              <Link to="/about">Om os</Link>
+            </li>
+            <li>
+              <Link to="/services">Tjenester</Link>
+            </li>
+            <li>
+              <Link to="/employees">Trænere</Link>
+            </li>
+            <li>
+              <Link to="/subscriptions">Priser</Link>
+            </li>
+            <li>
+              <Link to="/messages">Kontakt</Link>
+            </li>
           </ul>
         </div>
 

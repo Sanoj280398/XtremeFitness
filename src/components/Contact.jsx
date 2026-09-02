@@ -23,7 +23,13 @@ function Contact() {
     setStatus("");
     createMessage(formData)
       .then(() => {
-        setFormData({ name: "", phone: "", email: "", subject: "", message: "" });
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
         setStatus("Beskeden er sendt.");
       })
       .catch(() => setStatus("Beskeden kunne ikke sendes lige nu."));

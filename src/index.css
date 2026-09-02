@@ -200,6 +200,10 @@ button {
   font-weight: 500;
 }
 
+.nav__link--active {
+  color: var(--color-primary);
+}
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
@@ -660,6 +664,91 @@ button {
 
 .mypage__join {
   color: #25b923 !important;
+}
+
+/* ---------- Login ---------- */
+.login-page {
+  min-height: 100vh;
+  background: url("/assets/images/loginHeader.png") center / cover;
+}
+
+.login-page__overlay {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 7rem 1rem 3rem;
+  background: rgba(8, 9, 10, 0.72);
+}
+
+.login-page__panel {
+  width: min(100%, 440px);
+  padding: 2.5rem;
+  color: #fff;
+  background: rgba(8, 8, 8, 0.92);
+  border: 1px solid rgba(234, 74, 44, 0.8);
+  text-align: center;
+}
+
+.login-page__panel h1 {
+  font-size: 3.2rem;
+}
+
+.login-page__intro {
+  margin: 0.75rem 0 1.5rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.login-page__form {
+  display: grid;
+  gap: 0.6rem;
+  text-align: left;
+}
+
+.login-page__form label {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.login-page__form input {
+  min-height: 46px;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #5c5c5c;
+  color: #fff;
+  background: #191919;
+  font: inherit;
+}
+
+.login-page__form .btn {
+  justify-self: center;
+  margin-top: 1rem;
+}
+
+.login-page__form .btn:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.login-page__error {
+  color: #ff765d;
+  font-size: 0.85rem;
+}
+
+.login-page__choices {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.login-page__admin-link,
+.login-page__guest-link {
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+}
+
+.login-page__admin-link {
+  color: var(--color-primary);
 }
 
 /* ---------- Blog ---------- */
